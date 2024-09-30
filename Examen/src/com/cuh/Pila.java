@@ -3,32 +3,55 @@ package com.cuh;
 import java.util.Stack;
 
 public class Pila {
-
-	public static void main(String[] args) {
-		Stack<String> navHistorial = new Stack<String>();
-		Stack<String> navHistorialFuturo = new Stack<String>();
+	static Stack<String> navHistorial = new Stack<String>();
+	static Stack<String> navHistorialFuturo = new Stack<String>();
+	
+	
+	private static void paTras() {
+		if(!navHistorial.isEmpty()) {
+			navHistorialFuturo.push(navHistorial.pop());
+			System.out.println("Estas regresando a "
+			+ navHistorial.peek());	
+		}else {
+			System.out.println("No hay paginas para irte pa tras");
+		}
 		
-		//operacion para meter paginas
+	}
+	private static void paDelante() {
+		if(!navHistorialFuturo.isEmpty()) {
+			navHistorial.push(navHistorialFuturo.pop());
+			System.out.println("Estas avanzando a "
+					+ navHistorial.peek());
+			
+		}else {
+			System.out.println("No hay paginas para irte pa delante");
+		}
+	}
+	
+	private static void navegar() {
 		navHistorial.push("pagina1");
 		navHistorial.push("pagina2");
 		navHistorial.push("pagina3");
+	}
+	
+	public static void main(String[] args) {
+
+		//operacion para meter paginas
+		navegar();
 
 		//pa tras pagina2
-		
-		navHistorialFuturo.push(navHistorial.pop());
-		System.out.println("Estas regresando a "
-		+ navHistorial.peek());
+		paTras();
+	
 		
 		//pa tras pagina1
-		navHistorialFuturo.push(navHistorial.pop());
-		System.out.println("Estas regresando a "
-		+ navHistorial.peek());
+		paTras();
+		
 		
 		
 		//pagina siguiente   pagina2
-		navHistorial.push(navHistorialFuturo.pop());
-		System.out.println("Estas avanzando a "
-				+ navHistorial.peek());
+		
+		paDelante();
+		
 		
 		
 		navHistorialFuturo.clear();
