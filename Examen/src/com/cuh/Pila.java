@@ -7,6 +7,9 @@ public class Pila {
 	static Stack<String> navHistorialFuturo = new Stack<String>();
 	
 	
+	
+	
+	
 	private static void paTras() {
 		if(!navHistorial.isEmpty()) {
 			navHistorialFuturo.push(navHistorial.pop());
