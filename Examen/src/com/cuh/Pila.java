@@ -7,6 +7,7 @@ public class Pila {
 	static Stack<String> navHistorialFuturo = new Stack<String>();
 	
 	
+	//Hola, este es mi primer commit. Mario
 	private static void paTras() {
 		if(!navHistorial.isEmpty()) {
 			navHistorialFuturo.push(navHistorial.pop());
