@@ -5,7 +5,9 @@ import java.util.Stack;
 public class Pila {
 	static Stack<String> navHistorial = new Stack<String>();
 	static Stack<String> navHistorialFuturo = new Stack<String>();
+
 	
+	 
 	
 	private static void paTras() {
 		if(!navHistorial.isEmpty()) {
