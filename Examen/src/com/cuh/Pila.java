@@ -17,6 +17,8 @@ public class Pila {
 		}
 		
 	}
+	
+	
 	private static void paDelante() {
 		if(!navHistorialFuturo.isEmpty()) {
 			navHistorial.push(navHistorialFuturo.pop());
