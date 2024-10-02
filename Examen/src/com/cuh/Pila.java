@@ -35,6 +35,7 @@ public class Pila {
 	}
 	
 	public static void main(String[] args) {
+		
 
 		//operacion para meter paginas
 		navegar();
