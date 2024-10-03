@@ -25,6 +25,7 @@ public class Pila {
 			System.out.println("Estas avanzando a "
 					+ navHistorial.peek());
 			
+			
 		}else {
 			System.out.println("No hay paginas para irte pa delante");
 		}
@@ -40,7 +41,10 @@ public class Pila {
 
 		//operacion para meter paginas
 		navegar();
-
+		navHistorialFuturo.clear();
+		navHistorial.push("pagina4");
+		System.out.println("Estas navegando en "
+				+ navHistorial.peek());
 		//pa tras pagina2
 		paTras();
 	
@@ -56,10 +60,7 @@ public class Pila {
 		
 		
 		
-		navHistorialFuturo.clear();
-		navHistorial.push("pagina4");
-		System.out.println("Estas navegando en "
-				+ navHistorial.peek());
+		
 		
 		
 	}
