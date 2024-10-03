@@ -3,11 +3,9 @@ package com.cuh;
 import java.util.Stack;
 
 public class Pila {
+	
 	static Stack<String> navHistorial = new Stack<String>();
 	static Stack<String> navHistorialFuturo = new Stack<String>();
-	
-	
-	
 	
 	
 	private static void paTras() {
@@ -20,11 +18,18 @@ public class Pila {
 		}
 		
 	}
+
 	private static void paDelante() {
 		if(!navHistorialFuturo.isEmpty()) {
 			navHistorial.push(navHistorialFuturo.pop());
 			System.out.println("Estas avanzando a "
 					+ navHistorial.peek());
+
+			navHistorialFuturo.clear();
+			navHistorial.push("pagina4");
+			System.out.println("Estas navegando en "
+					+ navHistorial.peek());
+			
 			
 		}else {
 			System.out.println("No hay paginas para irte pa delante");
@@ -54,13 +59,6 @@ public class Pila {
 		//pagina siguiente   pagina2
 		
 		paDelante();
-		
-		
-		
-		navHistorialFuturo.clear();
-		navHistorial.push("pagina4");
-		System.out.println("Estas navegando en "
-				+ navHistorial.peek());
 		
 		
 	}
