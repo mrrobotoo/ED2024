@@ -7,7 +7,7 @@ public class Pila {
 	static Stack<String> navHistorialFuturo = new Stack<String>();
 	
 	
-	//Hola, este es mi primer commit. Mario
+	//Hola, este es mi segundo commit. Mario
 	private static void paTras() {
 		if(!navHistorial.isEmpty()) {
 			navHistorialFuturo.push(navHistorial.pop());
@@ -39,6 +39,10 @@ public class Pila {
 
 		//operacion para meter paginas
 		navegar();
+		navHistorialFuturo.clear();
+		navHistorial.push("pagina4");
+		System.out.println("Estas navegando en "
+				+ navHistorial.peek());
 
 		//pa tras pagina2
 		paTras();
@@ -52,13 +56,6 @@ public class Pila {
 		//pagina siguiente   pagina2
 		
 		paDelante();
-		
-		
-		
-		navHistorialFuturo.clear();
-		navHistorial.push("pagina4");
-		System.out.println("Estas navegando en "
-				+ navHistorial.peek());
 		
 		
 	}
