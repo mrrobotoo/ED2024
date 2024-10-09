@@ -3,7 +3,7 @@ import java.util.Stack;
 public class Tortilleria{
 
 public static void main(String[] args) {
-	        String[] nombres = {"Ana", "Luis", "María", "Carlos", "Elena", "Pedro"};
+	        String[] nombres = {"Cris", "Mario", "Sebas", "David", "Pablo", "Santi"};
 	        String[] horas = {"08:00", "09:00", "07:30", "11:15", "10:45", "08:30"};
 	        int[] gramos = {50, 120, 80, 150, 90, 200};
 	     
@@ -19,12 +19,12 @@ public static void main(String[] args) {
 	            }
 	        }
 	        
-	        System.out.println("Usuarios que necesitan menos de 100 gramos de tortilla:");
+	        System.out.println("Persona que necesitan menos de 100 gramos de tortilla:");
 	        while (!pilaMenos.isEmpty()) {
 	            System.out.println(pilaMenos.pop());
 	        }
 	        
-	        System.out.println("Usuarios que necesitan más de 100 gramos de tortilla:");
+	        System.out.println("Personas que necesitan más de 100 gramos de tortilla:");
 	        while (!pilaMas.isEmpty()) {
 	            System.out.println(pilaMas.pop());
 	        }
