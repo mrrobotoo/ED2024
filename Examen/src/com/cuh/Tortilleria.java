@@ -37,14 +37,14 @@ public class Tortilleria {
 		personasFila.clear();
 
 		int repeticiones = filaAltaPrioridad.size();
-		int repeticiones2 = repeticiones;
+		
 
-		for (int i = 0; i < repeticiones; i++) {
+		while (!filaAltaPrioridad.isEmpty()) {
 			
 			comparar.push(filaAltaPrioridad.pop());
-			repeticiones2--;
+			repeticiones--;
 			
-			for (int j = 0; j < repeticiones2; j++) {
+			for (int j = 0; j < repeticiones; j++) {
 				
 				if (comparar.peek().getTiempo() > filaAltaPrioridad.peek().getTiempo()) {
 					personasFila.push(filaAltaPrioridad.pop());
@@ -59,23 +59,21 @@ public class Tortilleria {
 			}
 			
 		}
-		
+	
 		while (!comparar.isEmpty()) {
 			filaAltaPrioridad.push(comparar.pop());
 		}
 		
-		
 		personasFila.clear();
-		//2
+		
 		repeticiones = filaBajaPrioridad.size();
-		repeticiones2 = repeticiones;
 
-		for (int i = 0; i < repeticiones; i++) {
+		while (!filaBajaPrioridad.isEmpty()) {
 			
 			comparar.push(filaBajaPrioridad.pop());
-			repeticiones2--;
+			repeticiones--;
 			
-			for (int j = 0; j < repeticiones2; j++) {
+			for (int j = 0; j < repeticiones; j++) {
 				
 				if (comparar.peek().getTiempo() > filaBajaPrioridad.peek().getTiempo()) {
 					personasFila.push(filaBajaPrioridad.pop());
