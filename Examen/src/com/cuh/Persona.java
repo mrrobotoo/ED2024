@@ -6,7 +6,7 @@ public class Persona {
 	    private int tiempo; 
 	    private double kilos; 
 
-	    // Constructor
+	    // Constructor tiene el mismo nombre de la clase 
 	    public Persona(int tiempo, double kilos) {
 	        this.tiempo = tiempo;
 	        this.kilos = kilos;
