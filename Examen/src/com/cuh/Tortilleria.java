@@ -64,7 +64,39 @@ public class Tortilleria {
 			filaAltaPrioridad.push(comparar.pop());
 		}
 		
+		
+		personasFila.clear();
+		//2
+		repeticiones = filaBajaPrioridad.size();
+		repeticiones2 = repeticiones;
+
+		for (int i = 0; i < repeticiones; i++) {
+			
+			comparar.push(filaBajaPrioridad.pop());
+			repeticiones2--;
+			
+			for (int j = 0; j < repeticiones2; j++) {
+				
+				if (comparar.peek().getTiempo() > filaBajaPrioridad.peek().getTiempo()) {
+					personasFila.push(filaBajaPrioridad.pop());
+				} else {
+					personasFila.push(comparar.pop());
+					comparar.push(filaBajaPrioridad.pop());
+				}
+
+				while (!personasFila.isEmpty()) {
+					filaBajaPrioridad.push(personasFila.pop());
+				}
+			}
+			
+		}
+		
+		while (!comparar.isEmpty()) {
+			filaBajaPrioridad.push(comparar.pop());
+		}
+		
 		imprimirPila(filaAltaPrioridad, "Fila Alta Prioridad");
+		imprimirPila(filaBajaPrioridad, "Fila Baja Prioridad");
 
 		scanner.close();
 
@@ -96,12 +128,12 @@ public class Tortilleria {
 	}
 
 	private static float introducirGramos() {
-		System.out.print("2. Pon la hora en que llego la persona: ");
+		System.out.print("2. Pon cuantos gramos de tortilla se llevara: ");
 		return scanner.nextFloat();
 	}
 
 	private static float introducirTiempo() {
-		System.out.print("3. Pon cuantos gramos de tortilla se llevara: ");
+		System.out.print("3. Pon la hora en que llego la persona: ");
 		return scanner.nextFloat();
 	}
 
