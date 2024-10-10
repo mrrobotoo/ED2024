@@ -32,5 +32,10 @@ public class Clientes {
 	public void setGramos(int gramos) {
 		this.gramos = gramos;
 	}
+	
+	public String toString() {
+		return "Gramos: " + gramos + " Tiempo de llegada: " + tiempo;
+		
+	}
 
 }

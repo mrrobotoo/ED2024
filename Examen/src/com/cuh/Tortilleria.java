@@ -8,7 +8,8 @@ public class Tortilleria {
 	public static void main(String[] args) {
 		
 		
-		Stack<Clientes> clienteAtender = new Stack<>();
+		Stack<Clientes> gramosPedidos = new Stack<>();
+		Stack<Clientes> tiempoLlegada = new Stack<>();
 		
 		
 		Scanner scanner = new Scanner (System.in);
@@ -16,40 +17,49 @@ public class Tortilleria {
 		int gramos;
 		String tiempo;
 		
-		System.out.println("Clientes a atender:");
+		System.out.print("Clientes a atender: ");
 		clientes = scanner.nextInt();
 		scanner.nextLine();
 		
 		for (int i = 0; i < clientes; i++) {
-            System.out.println("Cliente " + (i + 1) + ":");
+
             
-            System.out.print("Gramos a comprar: ");
+            System.out.print("Gramos a comprar de cliente " + (i + 1) + ": ");
             gramos = scanner.nextInt();
             scanner.nextLine();  
             
-            System.out.print("Hora de llegada: ");
+            System.out.print("Hora de llegada cliente " + (i + 1) + ": ");
             tiempo = scanner.nextLine();  
             
             // Creamos un nuevo cliente y lo agregamos a la pila
             Clientes cliente = new Clientes(tiempo, gramos);
-            clienteAtender.push(cliente);
+            
+            
+           //validamos la cantidad de gramos para darle prioridad
+            if (gramos < 4000) {
+            	gramosPedidos.push(cliente);
+            } else {
+            	tiempoLlegada.push(cliente);
+            }
+            
         }
 		
 		
 		
 		//damos prioridad a los clientes que compren menos gramos de tortillas
-		while (!clienteAtender.isEmpty()) {
-            Clientes cliente = clienteAtender.peek();  
+		while (!gramosPedidos.isEmpty()) {
+            Clientes cliente = gramosPedidos.pop();  
+            System.out.println(cliente);
             
-            if (cliente.getGramos() < 4000) {
-                System.out.println("El cliente compro " + cliente.getGramos() + " gramos de tortillas.");
-            } else {
-                System.out.println("El cliente compro más de 4000 gramos y llegó a las " + cliente.getTiempo() + ".");
-            }
-            
-            clienteAtender.pop();  // Quitamos al cliente que ya fue atendido
         }
-
+		
+		
+		//damos prioridad a los clientes dependiendo su hora de llegada
+		while (!tiempoLlegada.isEmpty()) {
+            Clientes cliente = tiempoLlegada.pop();  
+            System.out.println(cliente);
+            
+        }
 		
 
 	}
