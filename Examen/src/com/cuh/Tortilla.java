@@ -23,6 +23,11 @@ public class Tortilla {
 	        
 	        /*Se ocupara un ciclo while proque el codigo continuta corriendo 
 	        mientras la pila tortilleria no esté vacía.*/
+	        while (!tortilleria.isEmpty()) {
+				System.out.println("La pila no esta vacia");
+				break;
+				//validanado si el ciclo while funciona 
+			}
 	 }
     
 }
