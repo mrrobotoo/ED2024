@@ -1,29 +1,29 @@
 package com.cuh;
 import java.util.Stack;
 
-public class Tortilleria {
+public class Tortilla {
 	
-	public static void main(String[] args) {
-    Stack<Double>masGramos = new Stack<Double>();
-    masGramos.push(5.5);
-    masGramos.push(7.23);
-    masGramos.push(8.5);
-    masGramos.push(4.5);
-    masGramos.push(10.5);
+	double  gramos;
+	String turno;
+	
+	public Tortilla(double gramos, String turno) {
+		this.gramos= gramos; 	
+		this.turno= turno;
+	
+	}
+
+	 public static void main(String[] args) {
+	        Stack<Tortilla> tortilleria = new Stack<Tortilla>();
+	     //Objetos "tortilla" agregados a la pila tortilleria
+	        tortilleria.push(new Tortilla(5.5, "10:00 am"));
+	        tortilleria.push(new Tortilla(5.5, "10:00 am"));
+	        tortilleria.push(new Tortilla(5.5, "10:00 am"));
+	        tortilleria.push(new Tortilla(5.5, "10:00 am"));
+	        	
+	        
+	        /*Se ocupara un ciclo while proque el codigo continuta corriendo 
+	        mientras la pila tortilleria no esté vacía.*/
+	 }
     
-    
-    Stack<Double>menosGramos = new Stack<Double>();
-    menosGramos.push(5.5);
-    menosGramos.push(7.23);
-    menosGramos.push(8.5);
-    menosGramos.push(4.5);
-    menosGramos.push(10.5);
-    
-    Stack<String>turnoOHoraDeLlegada = new Stack<String>();
-    turnoOHoraDeLlegada.push("10:00 am");
-    turnoOHoraDeLlegada.push("10:00 am");
-    turnoOHoraDeLlegada.push("10:00 am");
-    turnoOHoraDeLlegada.push("10:00 am");
-    turnoOHoraDeLlegada.push("10:00 am");
 }
-}
+    
