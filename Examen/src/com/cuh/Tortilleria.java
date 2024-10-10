@@ -79,6 +79,7 @@ public class Tortilleria {
 	        if (pilaOrdenada.isEmpty()) {
 	            pilaOrdenada.push(persona);
 	            vaciarPilaTemporal(pilaOrdenada, pilaTemporal);
+	            
 	        } else {
 	        	 if (persona.getHoraLlegada().compareTo(pilaOrdenada.peek().getHoraLlegada()) <= 0) {
 	                 pilaOrdenada.push(persona);
@@ -93,7 +94,10 @@ public class Tortilleria {
 	 
 	 }
 	private static void vaciarPilaTemporal(Stack<Persona> pilaOrdenada, Stack<Persona> pilaTemporal) {
-		// TODO Auto-generated method stub
+		while (!pilaTemporal.isEmpty()) {
+			pilaOrdenada.push(pilaTemporal.pop());
+		}
 		
 	}
-}
+		
+	}
