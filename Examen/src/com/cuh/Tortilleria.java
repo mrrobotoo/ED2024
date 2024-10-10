@@ -1,62 +1,52 @@
 package com.cuh;
 
-import java.util.Scanner;
 
+import java.util.Scanner;
 import java.util.Stack;
 
 import com.cuh.vo.Persona;
 
 public class Tortilleria {
-	
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
-	}
-	    Scanner scannner = new Scanner (System.in);
-		Stack <String> todasLasPersonas= new Stack<>();
-		/*Stack <String> personasPrimero= new Stack<>();
-		Stack <String> personasFinal= new Stack<>(); */
-		
-		// Agrega personas a la pila
-		public void todasLasPersonas(String nombre) {
-		
-		Persona todasLasPersonas = new Persona( nombre);
-		
-		todasLasPersonas.push(todasLasPersonas);{
-		System.out.println(todasLasPersonas.getNombre() + "llego a las:" + todasLasPersonas.getHoraDeLlegada());
-	
-		}
-		public void mostrarPersonas() {
-			if (!todasLasPersonas.isEmpty()) {
-				String mostrarPersonas = todasLasPersonas.peek();
-			}
 			
-		public void mostrarPersonasFormadas() {
-		
-			if (!todasLasPersonas.isEmpty());
-		System.out.println("Personas: " + todasLasPersonas);
+     Scanner scanner = new Scanner(System.in);
+     Stack <String> todasLasPersonas = new Stack<>();
+     Stack <String> personasOrdenadas = new Stack<>();
+     
+     String personas;
+     int tiempo;
+     int gramos;
 
-		
-		}
-		
-		/*
-		
-		private static void personasEnLaFila (String todasLasPersonas,String personasPrimero,String personasFinal ){
-			Persona persona = persona(persona);
-		System.out.println("¿Cuantas personas hay?"); 
-		
-		for (int i = 0; i < todasLasPersonas; i++) {  
-			System.out.println("¿Cuantos gramos desea?");
-		}
-
-		String i;
-		todasLasPersonas.push("persona " + (i + 1));
-
-		
-		
-		tiempo tiempo = new tiempo(tiempo);
-		tiempo.setTiempo("");
-	    tiempo.setTiempo("50 g");*/
+	    System.out.println("Ingrese el total de personas");
+	    personas = scanner.toString();
+	    scanner.nextLine();
+	    for (int i = 0; i < 0; i++) {
+	    
+	    System.out.println("Persona" + (i +1));
+	    scanner.nextLine();
+	    System.out.println("Ingrese los gramos que requiere");
+	    gramos = scanner.nextInt();
+	    
+	    System.out.println("Ingrese la hora en que llego");
+	    tiempo = scanner.nextInt();
+	    
+	    String persona = new String( );
+	   todasLasPersonas.push(persona);
+	    
+	  }
+	   System.out.println("Personas formadas");
+	   while (!todasLasPersonas.isEmpty()) {
+		   personas = todasLasPersonas.pop();
+		   
+		 
+		   }
+	   }
+	    
+	    
+	 
+	  
 		
 	}
 
