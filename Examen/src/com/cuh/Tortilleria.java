@@ -2,35 +2,65 @@ package com.cuh;
 import java.util.Stack;
 public class Tortilleria{
 
-public static void main(String[] args) {
-	        String[] nombres = {"Cris", "Mario", "Sebas", "David", "Pablo", "Santi"};
-	        String[] horas = {"08:00", "09:00", "07:30", "11:15", "10:45", "08:30"};
-	        int[] gramos = {50, 120, 80, 150, 90, 200};
-	     
-	        Stack<String> pilaMenos = new Stack<>();
-	        Stack<String> pilaMas = new Stack<>();
-	        
-	        for (int i = 0; i < nombres.length; i++) {
-	            String persona = "Nombre: " + nombres[i] + ", Hora: " + horas[i] + ", Gramos de tortilla: " + gramos[i];
-	            if (gramos[i] <= 100) {
-	                pilaMenos.push(persona);
-	            } else {
-	                pilaMas.push(persona);
+	 public static void main(String[] args) {
+	  Stack<Persona> pila = new Stack<>();
+
+	     pila.push(new Persona("Cris", "08:00", 50));
+	     pila.push(new Persona("Mario", "09:00", 120));
+	     pila.push(new Persona("Sebas", "07:30", 80));
+         pila.push(new Persona("David", "11:15", 150));
+         pila.push(new Persona("Pablo", "10:45", 90));
+	     pila.push(new Persona("Santi", "08:30", 200));
+
+	        pilaOrdenada(pila);
+
+
+	        System.out.println("Ordenes de tortilla:");
+	        while (!pila.isEmpty()) {
+	            System.out.println(pila.pop());
+	        }
+	    }
+
+	 public static void pilaOrdenada(Stack<Persona> pila) {
+	        Stack<Persona> pilaTemp = new Stack<>();
+
+	        while (!pila.isEmpty()) {
+	            Persona actual = pila.pop();
+
+	            while (!pilaTemp.isEmpty()) {
+	                Persona top = pilaTemp.peek();
+	                if (top.gramosTortilla > actual.gramosTortilla) {
+	                    pila.push(pilaTemp.pop());
+	                } else if (top.gramosTortilla == actual.gramosTortilla && top.horaLlegada.compareTo(actual.horaLlegada) > 0) {
+	                    pila.push(pilaTemp.pop());
+	                } else {
+	                    break;
+	                }
 	            }
+
+	            pilaTemp.push(actual);
 	        }
-	        
-	        System.out.println("Persona que necesitan menos de 100 gramos de tortilla:");
-	        while (!pilaMenos.isEmpty()) {
-	            System.out.println(pilaMenos.pop());
-	        }
-	        
-	        System.out.println("Personas que necesitan más de 100 gramos de tortilla:");
-	        while (!pilaMas.isEmpty()) {
-	            System.out.println(pilaMas.pop());
+
+	        while (!pilaTemp.isEmpty()) {
+	            pila.push(pilaTemp.pop());
 	        }
 	    }
 	}
 
 
+	class Persona {
+	    String nombre;
+	    String horaLlegada;
+	    int gramosTortilla;
 
+	    public Persona(String nombre, String horaLlegada, int gramosTortilla) {
+	        this.nombre = nombre;
+	        this.horaLlegada = horaLlegada;
+	        this.gramosTortilla = gramosTortilla;
+	    }
 
+	    public String toString() {
+	        return "Nombre: " + nombre + ", Hora en la que llego: " + horaLlegada + ", Gramos de tortilla: " + gramosTortilla;
+	    }
+	}
+	
