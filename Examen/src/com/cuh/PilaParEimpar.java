@@ -1,53 +1,72 @@
 package com.cuh;
 import java.util.Stack;
-public class PilaParEimpar {
+
 	
-		public static void  main (String[] args) {
-		Stack<Integer> numerosIngresadosPorElSistema = new Stack<Integer>();
-		
-		numerosIngresadosPorElSistema.push(445);
-		numerosIngresadosPorElSistema.push(444);
-		numerosIngresadosPorElSistema.push(221);
-		numerosIngresadosPorElSistema.push(875);
-		numerosIngresadosPorElSistema.push(12);
-		numerosIngresadosPorElSistema.push(75);
-		numerosIngresadosPorElSistema.push(14);
-		numerosIngresadosPorElSistema.push(90);
-		numerosIngresadosPorElSistema.push(888);
-		numerosIngresadosPorElSistema.push(2);
-		
-			//Se llama al metodo parEImpar
-			Stack<Integer> pilaFinal = parEImpar(numerosIngresadosPorElSistema);		
-    }
-			private static Stack<Integer> parEImpar(Stack<Integer> numerosIngresadosPorElSistema) {
-			Stack<Integer> numerosPares = new Stack<Integer>();
-			Stack<Integer> numerosImpares = new Stack<Integer>();
-			Stack<Integer> pilaFinal = new Stack<Integer>();
-			
-			
-				while (!numerosIngresadosPorElSistema.isEmpty()) {
-					int numero = numerosIngresadosPorElSistema.pop(); 
-		            if (numero % 2 == 0) { 
-		                numerosPares.push(numero);  
-		            } else {
-		                numerosImpares.push(numero); 
-		            }
-		            //En este while se duardaran primero los pares en la pila final
-		        }
-				while (!numerosPares.isEmpty()) {
-		            pilaFinal.push(numerosPares.pop());
-		        }
+	
 
-		        //En este fuardaremos los impares en la pila final
-		        while (!numerosImpares.isEmpty()) {
-		            pilaFinal.push(numerosImpares.pop());
-		        
-		        
-		        }
-		        //Imprimí el metodo final
-		        System.out.println("Pila en orden de acuerdo al ejercicio ; " + "\n"+ pilaFinal);
-
-		        return pilaFinal; 
-		    }		
+	public class PilaParEimpar {
+		
+		double gramos;
+		String turno;
+		
+		public void Tortilla(double gramos, String turno) {
+			this.gramos = gramos; 	
+			this.turno = turno;
 		}
-	
+
+		// Método para encontrar el menor de la pila
+		public static Tortilla findMin(Stack<Tortilla> tortilleria) {
+			Tortilla minTortilla = tortilleria.peek(); // Asignamos el primer elemento como el menor
+			for (Tortilla t : tortilleria) {
+				if (t.gramos < minTortilla.gramos) {
+					minTortilla = t;
+				}
+			}
+			return minTortilla;
+		}
+
+		public static void main(String[] args) {
+			Stack<Tortilla> tortilleria = new Stack<>();
+			// Objetos "tortilla" agregados a la pila tortilleria
+			tortilleria.push(new Tortilla(1400, "11:00 am"));
+			tortilleria.push(new Tortilla(8.5, "11:01 am"));
+			tortilleria.push(new Tortilla(200, "11:10 am"));
+			tortilleria.push(new Tortilla(2.5, "11:05 am"));
+			tortilleria.push(new Tortilla(800, "11:00 am"));
+			tortilleria.push(new Tortilla(255, "11:20 am"));
+			tortilleria.push(new Tortilla(125, "11:21 am"));
+			tortilleria.push(new Tortilla(310, "11:22 am"));
+			tortilleria.push(new Tortilla(1000, "11:23 am"));
+			tortilleria.push(new Tortilla(2.5, "11:25 am"));
+			
+			Stack<Tortilla> sortedTortilleria = new Stack<>();
+
+			// Ordenar manualmente las tortillas de menor a mayor según los gramos
+			while (!tortilleria.isEmpty()) {
+				Tortilla min = findMin(tortilleria); // Encontramos la tortilla con menos gramos
+				Stack<Tortilla> tempStack = new Stack<>(); // Pila temporal para reconstruir la pila original sin el mínimo
+
+				// Pasamos todos los elementos a la pila temporal, excepto el mínimo
+				while (!tortilleria.isEmpty()) {
+					Tortilla actual = tortilleria.pop();
+					if (actual != min) {
+						tempStack.push(actual);
+					}
+				}
+
+				// Restauramos la pila original, pero sin el mínimo
+				while (!tempStack.isEmpty()) {
+					tortilleria.push(tempStack.pop());
+				}
+
+				// Agregamos el mínimo a la pila ordenada (primero los menores)
+				sortedTortilleria.push(min);
+			}
+
+			// Mostrar las tortillas ordenadas de menor a mayor según gramos
+			while (!sortedTortilleria.isEmpty()) {
+				Tortilla actual = sortedTortilleria.pop();
+				System.out.println("Prioridad dependiendo gramos: " + actual.gramos + " gramos, " + actual.turno);
+			}
+		}
+	}
