@@ -9,7 +9,7 @@ public class Pila {
 	
 	//Primer commit
 	
-private static void paTras() {
+	private static void paTras() {
 		if(!navHistorial.isEmpty()) {
 			navHistorialFuturo.push(navHistorial.pop());
 			System.out.println("Estas regresando a "

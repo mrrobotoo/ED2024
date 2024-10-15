@@ -1,0 +1,16 @@
+diff a/Examen/src/com/cuh/Tortilleria.java b/Examen/src/com/cuh/Tortilleria.java	(rejected hunks)
+@@ -128,12 +128,12 @@
+ 	}
+ 
+ 	private static float introducirGramos() {
+-		System.out.print("2. Pon la hora en que llego la persona: ");
++		System.out.print("2. Pon cuantos gramos de tortilla se llevara: ");
+ 		return scanner.nextFloat();
+ 	}
+ 
+ 	private static float introducirTiempo() {
+-		System.out.print("3. Pon cuantos gramos de tortilla se llevara: ");
++		System.out.print("3. Pon la hora en que llego la persona: ");
+ 		return scanner.nextFloat();
+ 	}
+ 
