@@ -2,20 +2,22 @@ package com.cuh;
 
 import java.util.Scanner;
 import java.util.Stack;
+import java.util.Vector;
 
 public class Pila {
-	
+
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
-		String pagina = null;
+		String pagina ="";
 		int opcion;
-		boolean key = false;
+		Boolean key = false;
+
 
 		while (!key == true) {
 			leerMenu();
 			opcion = scanner.nextInt();
-			scanner.nextLine(); // Preguntar por que se ocupa poner esto despues del .nextInt (¿Es para el salto de linea?)
-
+			scanner.nextLine();
+				
 			switch (opcion) {
 			case 1:
 				System.out.print("Ingresa el nombre de la pagina: ");
@@ -49,6 +51,7 @@ public class Pila {
 
 	private static void paTras() {
 		if (!navHistorial.isEmpty() && navHistorial.size() > 1 ) { //Se corrigio error de emptystack 
+			
 			navHistorialFuturo.push(navHistorial.pop()); //Primero que hace empuja y despues destruye? o es al reves?
 			System.out.println("\nEstas regresando a " + navHistorial.peek() + ".com\n");
 		} else {
@@ -81,5 +84,6 @@ public class Pila {
 		System.out.println("4. Salir");
 		System.out.print("Eliga una opcion: ");
 	}
+	
 
 }
