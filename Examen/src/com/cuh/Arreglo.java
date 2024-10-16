@@ -8,6 +8,7 @@ public class Arreglo {
 		double pivoteHaciaAbajo;
 		int ejeY = 0;
 		int ejeX = 0;
+		int menos = 1;
 		int uno = 1;
 
 		renglon[0][0] = 5.0;
@@ -27,7 +28,7 @@ public class Arreglo {
 
 		for (int iteracionesEjeY = 0; iteracionesEjeY < renglon.length; iteracionesEjeY++) {
 
-			for (int i = ejeY; i < 1; i++) {
+			for (int i = ejeY; i < uno; i++) {
 				pivoteVertical = renglon[i][ejeX];
 				for (int j = ejeX; j <= renglon.length; j++) {
 					renglon[i][j] /= pivoteVertical;
@@ -36,15 +37,16 @@ public class Arreglo {
 
 			}
 			
+			uno++;
 			ejeY++;
 			ejeX++;
 
 			for (int i = ejeY; i < renglon.length; i++) {
 				pivoteHaciaAbajo = renglon[i][ejeX-1];
 				for (int j = 0; j < renglon.length+1; j++) {
-					renglon[i][j] -= pivoteHaciaAbajo * renglon[i-uno][j];
+					renglon[i][j] -= pivoteHaciaAbajo * renglon[menos-i][j];
 				}
-				uno++;
+				menos++;
 			}
 
 			System.out.println();
