@@ -23,15 +23,11 @@ public class Examen_Jonathan_Salgado {
 		pila2.push(1);
 		pila2.push(5);
 		
-	int resultado = (pila1*pila2);
-
-		
+	//int resultado = (pila1*pila2);
 		for (int i = 0; i < args.length; i++) {
-		while(resultado == 0) {
+		//while(resultado == 0) {
 		
 		}	
-		}		
-		
-	
+		}			
 }
-}
+
