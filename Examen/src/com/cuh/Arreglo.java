@@ -58,29 +58,31 @@ public class Arreglo {
 			System.out.print(renglon2[i] + " ");
 		}
 		System.out.println("");
-		pivoteRenglo3 = renglon3[2];
+		pivoteRenglo3 = renglon3[1];
 		for(int i = 0; i < renglon3.length ;i++) {
-			renglon3[i] = renglon3[i]/pivoteRenglo3;
+			renglon3[i] = renglon3[i]-pivoteRenglo3*renglon2[i];
 			System.out.print(renglon3[i] + " ");
 		}
 		//tercera matriz
 		System.out.println("");
 		System.out.println("Tercera");
-		pivoteRenglo1 = renglon1[0];
+		
+		pivoteRenglo1 = renglon1[2];
 		for(int i = 0; i < renglon1.length ;i++) {
-			renglon1[i] = renglon1[i]/pivoteRenglo1;
+			renglon1[i] = renglon1[i]-pivoteRenglo1*renglon3[i];
 			System.out.print(renglon1[i] + " ");
 		}
+		
 		System.out.println("");
-		pivoteRenglo2 = renglon2[2];
+		pivoteRenglo2 = renglon2[1];
 		for(int i = 0; i < renglon2.length ;i++) {
-			renglon2[2] = renglon2[i]/pivoteRenglo2;
+			renglon2[i] = renglon2[i]-pivoteRenglo2*renglon3[i];
 			System.out.print(renglon2[i] + " ");
 		}
 		System.out.println("");
-		pivoteRenglo3 = renglon3[3];
+		pivoteRenglo3 = renglon3[2];
 		for(int i = 0; i < renglon3.length ;i++) {
-			renglon3[3] = renglon3[i]/pivoteRenglo3;
+			renglon3[i] = renglon3[i]/pivoteRenglo3;
 			System.out.print(renglon3[i] + " ");
 		}
 	
