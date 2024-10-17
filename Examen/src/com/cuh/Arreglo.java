@@ -62,6 +62,22 @@ public class Arreglo {
 					} else {
 						segundoRenglon[i] = segundoRenglon[i]/pivotito;
 						
+						 float factor = primerRenglon[1];
+					        for (int i1 = 0; i1 < primerRenglon.length; i1++) {
+					            primerRenglon[i1] = primerRenglon[i1] - factor * segundoRenglon[i1];
+					        }
+
+					       
+					        factor = primerRenglon[2];
+					        for (int i1 = 0; i1 < primerRenglon.length; i1++) {
+					            primerRenglon[i1] = primerRenglon[i1] - factor * tercerRenglon[i1];
+					        }
+
+					        factor = segundoRenglon[2];
+					        for (int i1 = 1; i1 < segundoRenglon.length; i1++) {
+					            segundoRenglon[i1] = segundoRenglon[i1] - factor * tercerRenglon[i1];
+					        }
+						
 						System.out.print(segundoRenglon[i] + " ");
 					}
 					
@@ -95,6 +111,7 @@ public class Arreglo {
 						
 						System.out.print(tercerRenglon[i] + " ");
 					}
+					
 					
 				}
 				
